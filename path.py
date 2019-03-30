@@ -21,8 +21,10 @@ def run_episode(agent, environment, training=False):
 agent = Agent()
 environment = Environment()
 
-print(agent.q_table)
 train_AI_for_n_episodes(agent, environment, 100)
-print(agent.q_table)
 
-first_plot()
+plt, fig, scatterplot = first_plot()
+
+plt.pause(1.0)
+update_plot(environment, plt, fig, scatterplot)
+plt.pause(1.0)

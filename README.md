@@ -7,5 +7,5 @@ To launch the program and watch the agent execute episodes and learn by itself :
 python path.py
 ```
 
-The program shall draw a grid with an obective and pitfalls, and the agent tries, iteratively through episodes, to discover the policy of the right path :
+The program shall draw a grid with an obective and pitfalls, and the agent tries, iteratively through episodes, to discover the policy of the right path :  
 ![Q-Learning pitfalls path](images/qlearning-pitfalls-path.png)

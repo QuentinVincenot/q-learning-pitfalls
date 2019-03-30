@@ -9,8 +9,8 @@ class Agent:
 
 	def init_q_table(self):
 		self.q_table = {}
-		for row in range(2):
-			for col in range(2):
+		for row in range(3):
+			for col in range(3):
 				for action in ["up", "left", "down", "right"]:
 					self.q_table[((row, col), action)] = 0.0
 

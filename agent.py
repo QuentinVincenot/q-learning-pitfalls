@@ -1,9 +1,11 @@
 import random
 
 class Agent:
-	def __init__(self):
+	def __init__(self, learning_rate=0.5, actualisation_factor=0.9):
 		self.epsilon = 1.0
 		self.init_q_table()
+		self.learning_rate = learning_rate
+		self.actualisation_factor = actualisation_factor
 
 	def init_q_table(self):
 		self.q_table = {}
@@ -50,8 +52,6 @@ class Agent:
 				best_new_state_action = possible_action
 				best_new_state_q_value = new_state_q_value
 
-		learning_rate = 0.5
-		actualisation_factor = 0.9
-		previous_knowledge = (1-learning_rate)*(self.q_table[(old_state, action)])
-		learnt_knowledge = (learning_rate)*(reward + actualisation_factor*best_new_state_q_value)
+		previous_knowledge = (1-self.learning_rate)*(self.q_table[(old_state, action)])
+		learnt_knowledge = (self.learning_rate)*(reward + self.actualisation_factor*best_new_state_q_value)
 		self.q_table[(old_state, action)] = previous_knowledge + learnt_knowledge

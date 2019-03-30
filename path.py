@@ -23,7 +23,7 @@ def run_episode(agent, environment, fig, ax, training=False):
 	erase_position(scatterplot)
 
 
-agent = Agent()
+agent = Agent(learning_rate=0.5, actualisation_factor=0.9)
 environment = Environment()
 
 plt, fig, ax = initialise_plot()

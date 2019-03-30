@@ -1,5 +1,6 @@
 from environment import *
 from agent import *
+from visualisation import *
 
 
 def train_AI_for_n_episodes(agent, environment, episodes=10):
@@ -23,3 +24,5 @@ environment = Environment()
 print(agent.q_table)
 train_AI_for_n_episodes(agent, environment, 100)
 print(agent.q_table)
+
+first_plot()

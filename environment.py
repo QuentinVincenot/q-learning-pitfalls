@@ -1,7 +1,6 @@
 class Environment:
 	def __init__(self):
-		self.current_state = (0, 0)
-		self.final_state = (1, 1)
+		self.reset()
 		self.init_next_states()
 		self.init_rewards()
 
@@ -9,9 +8,16 @@ class Environment:
 		self.current_state = (0, 0)
 		self.final_state = (1, 1)
 
+	def generate_all_possible_states(self):
+		possible_states = []
+		for row in range(2):
+			for col in range(2):
+				possible_states += [(row, col)]
+		return possible_states
+
 	def init_next_states(self):
 		self.next_states = {}
-		for state in [(0, 0), (0, 1), (1, 0), (1, 1)]:
+		for state in self.generate_all_possible_states():
 			self.next_states[(state, "up")] = (state[0], max(1, state[1]))
 			self.next_states[(state, "left")] = (max(0, state[0]), state[1])
 			self.next_states[(state, "down")] = (state[0], max(0, state[1]))

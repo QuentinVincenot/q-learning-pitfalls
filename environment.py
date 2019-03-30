@@ -1,12 +1,13 @@
-import numpy as np
-
 class Environment:
-	def __init__(self, rows=2, cols=2):
-		self.grid_size = (rows, cols)
+	def __init__(self):
 		self.current_state = (1, 0)
 		self.final_state = (0, 1)
 		self.init_next_states()
 		self.init_rewards()
+
+	def reset(self):
+		self.current_state = (1, 0)
+		self.final_state = (0, 1)
 
 	def init_next_states(self):
 		self.next_states = {}

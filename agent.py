@@ -19,7 +19,7 @@ class Agent:
 			next_action = self.choose_exploration()
 		else:
 			next_action = self.choose_exploitation(current_state)
-		self.epsilon -= 0.01
+		self.epsilon *= 0.985
 		return next_action
 
 	def choose_exploration(self):

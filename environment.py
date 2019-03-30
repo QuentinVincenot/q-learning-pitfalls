@@ -25,14 +25,11 @@ class Environment:
 
 	def init_rewards(self):
 		self.rewards = {}
-		self.rewards[(0, 0)] = -1.0
-		self.rewards[(0, 1)] = -1.0
-		self.rewards[(0, 2)] = -1.0
-		self.rewards[(1, 0)] = -1.0
+		for row in range(3):
+			for col in range(3):
+				self.rewards[(row, col)] = -1.0
 		self.rewards[(1, 1)] = -10.0
 		self.rewards[(1, 2)] = -10.0
-		self.rewards[(2, 0)] = -1.0
-		self.rewards[(2, 1)] = -1.0
 		self.rewards[(2, 2)] = 10.0
 
 	def get_next_state(self, state, action):

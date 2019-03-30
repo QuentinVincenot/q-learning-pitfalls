@@ -11,22 +11,11 @@ class Environment:
 
 	def init_next_states(self):
 		self.next_states = {}
-		self.next_states[((0, 0), "up")] = (0, 1)
-		self.next_states[((0, 0), "left")] = (0, 0)
-		self.next_states[((0, 0), "down")] = (0, 0)
-		self.next_states[((0, 0), "right")] = (1, 0)
-		self.next_states[((0, 1), "up")] = (0, 1)
-		self.next_states[((0, 1), "left")] = (0, 1)
-		self.next_states[((0, 1), "down")] = (0, 0)
-		self.next_states[((0, 1), "right")] = (1, 1)
-		self.next_states[((1, 0), "up")] = (1, 1)
-		self.next_states[((1, 0), "left")] = (0, 0)
-		self.next_states[((1, 0), "down")] = (1, 0)
-		self.next_states[((1, 0), "right")] = (1, 0)
-		self.next_states[((1, 1), "up")] = (1, 1)
-		self.next_states[((1, 1), "left")] = (0, 1)
-		self.next_states[((1, 1), "down")] = (1, 0)
-		self.next_states[((1, 1), "right")] = (1, 1)
+		for state in [(0, 0), (0, 1), (1, 0), (1, 1)]:
+			self.next_states[(state, "up")] = (state[0], max(1, state[1]))
+			self.next_states[(state, "left")] = (max(0, state[0]), state[1])
+			self.next_states[(state, "down")] = (state[0], max(0, state[1]))
+			self.next_states[(state, "right")] = (max(1, state[0]), state[1])
 
 	def init_rewards(self):
 		self.rewards = {}
